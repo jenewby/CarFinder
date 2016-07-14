@@ -1,0 +1,102 @@
+﻿/*.jumbotron {
+    background-image: url('uploadimg/MARIO_KART_1480.jpg');
+    color: white;
+    background-attachment: fixed;
+    min-height: 1000px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}*/
+
+/*html,body {height:100%;width:100%;}
+.jumbotron {
+    background-color:inherit;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.container-full-bg {max-width:100%;background-position:center;background-size:cover;}
+.container-full-bg .container, .container-full-bg .container .jumbotron {height:100%;width:100%;}*/
+
+.mario {
+    background-image: url('uploadimg/MARIO_KART_nintendo_go_kart_race_racing_family_1650x1275.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-position-y: 0px;
+    background-position: right;
+}
+
+.divHeight {
+    min-height:800px;
+}
+#marionav{
+    margin-bottom: 0px;
+
+}
+#cartable th{
+    padding: 0 30px;
+}
+/*#bbot {
+    border:2px solid black;
+    border-bottom-style:double;
+}*/
+
+.table.table-condensed tr th {
+   border-bottom: 1px solid black; /* Change the color you want to set */
+}
+
+.table.table-condensed tr td {
+   border-bottom: 1px solid black; /* Change the color you want to set */
+}
+
+.modal-footer {
+    background-image: url('uploadimg/e8429d9d-6e01-4e3f-9284-f8a811bd2b71.jpg');
+}
+
+.modal-header {
+        background-image: url('uploadimg/e8429d9d-6e01-4e3f-9284-f8a811bd2b71.jpg');
+}
+
+.app-modal-window .modal-dialog {
+  width: 80%;
+}
+@media screen and (max-width: 990px) {
+  .imgGone {
+    display: none !important;
+  }
+    tdesign {
+        background-color: white  !important;
+    }
+}
+
+.red {
+    color:red;
+}
+
+
+.site__title { 
+    color: red;
+    
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a); 
+    -webkit-animation: hue 60s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+}
+.logoImage {
+    list-style-type:none;
+}
+.logoImage li{
+    background-image:url("uploadimg/Mario_kart_first_logo.png");
+    background-size:cover;
+ 
+    display: inline-block;
+}

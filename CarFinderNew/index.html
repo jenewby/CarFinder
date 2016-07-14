@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Styles.css" rel="stylesheet" />
+
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <link href="trNgGrid.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/animate.min.css" rel="stylesheet" />
+
+
+
+    <script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/CarController.js"></script>
+    <script src="trNgGrid.min.js"></script>
+
+    <script src="scripts/easy-social-share.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <!--<style>
+        html {
+            background: url('uploadimg/MARIO_KART_nintendo_go_kart_race_racing_family_1650x1275.jpg');
+            background-size: cover;
+             background-repeat: repeat;
+        }
+    </style>-->
+
+
+</head>
+<body ng-app="myModule" ng-controller="myController as carCtrl">
+    <div class="navbar navbar-inverse" id="marionav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="img-responsive" style="max-height:30px;" src="uploadimg/Mario_kart_first_logo.png" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mario divHeight container-fluid">
+        <div class="row">
+            <div class="search">
+
+                <div class="col-md-2 col-sm-2">
+                    <h3>Year</h3>
+                    <select style="width: 100%; text-emphasis-color: red" ng-class="{'animated': !flash, 'animated': flash}" ng-mouseenter="flash=!flash" ng-mouseleave="flash=!flash;" class="site__title" ng-model="carCtrl.option.year" ng-options="year for year in carCtrl.years" ng-change="carCtrl.getMakes()" ng-init="carCtrl.option.year=0"></select>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <h3>Make</h3>
+                    <select style="width: 100%;" ng-class="{'animated': !bang, 'animated': bang}" class="site__title" ng-model="carCtrl.option.make" ng-options="make for make in carCtrl.makes" ng-mouseenter="bang=!bang" ng-mouseleave="bang=!bang" ng-change="carCtrl.getModels()"></select>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <h3>Model</h3>
+                    <select style="width: 100%;" ng-class="{'animated': !boo, 'animated': boo}" class="site__title " ng-model="carCtrl.option.model" ng-options="model for model in carCtrl.models" ng-mouseenter="boo=!boo" ng-mouseleave="boo=!boo" ng-change="carCtrl.getTrims()"></select>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <h3>Trim</h3>
+                    <select style="width: 100%;" ng-class="{'animated': !hot, 'animated': hot}" class="site__title" ng-model="carCtrl.option.trim" ng-mouseenter="hot=!hot" ng-mouseleave="hot=!hot" ng-options="trim for trim in carCtrl.trims" ng-change="carCtrl.getCars()"></select>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px">
+            <div class="col-md-5">
+                <!--<table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Make</th>
+                            <th>Series</th>
+                            <th>Style</th>
+                            <th>Transmission</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="car in carCtrl.cars">
+                            <td>{{car.model_year}}</td>
+                            <td>{{car.make}}</td>
+                            <td>{{car.model_name}}</td>
+                            <td>{{car.model_trim}}</td>
+                            <td>{{car.transmission_type}}</td>
+                            <td><button ng-click="carCtrl.open(car.id)">See more</button></td>
+                        </tr>
+                    </tbody>
+                </table>-->
+
+
+                <table tr-ng-grid="" items="carCtrl.cars" ng-cloak="" fields="['make', 'model_year', 'model_name', 'model_trim', 'transmission_type' ]" page-items="10" class="table table-responsive" style="border: 1px solid black">
+                    <thead>
+                        <tr id="bbot">
+                            <th field-name="make" display-name="Make" style="border-bottom: 1px solid black"></th>
+                            <th field-name="model_year" display-name="Year" style="border-bottom: 1px solid black"></th>
+                            <th field-name="model_name" display-name="Model" style="border-bottom: 1px solid black"></th>
+                            <th field-name="model_trim" display-name="Trim" style="border-bottom: 1px solid black"></th>
+                            <th field-name="transmission_type" display-name="Transmission" style="border-bottom: 1px solid black"></th>
+                            <th display-name="Select" enable-filtering="false" enable-sorting="false" style="border-bottom: 1px solid black"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color:rgba(255,255,255, 0.9)" ng-repeat="car in carCtrl.cars">
+                            <td><button style="border: 2px solid black; background-color: white; color: black; border-radius: 4px;" ng-click="carCtrl.open(gridItem.id)">See more</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div style="padding-top: 20px" class="col-md-4">
+                <img class="img-responsive imgGone animated bounce infinite" src="uploadimg/Asdsad.png" />
+            </div>
+        </div>
+        <!--ng modal-->
+
+        <script type="text/ng-template" id="carInfo.html">
+            <div class="modal-header">
+                <div>
+                    <button class="btn btn-primary pull-right" ng-click="cm.cancel()">X</button>
+                </div>
+            </div>
+            <br />
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Car Details </strong><br />
+                        {{cm.car.car.model_year}} - {{ cm.car.car.make| capitalize }} - {{cm.car.car.model_name  | capitalize}} <br />
+                        <!--{{ cm.car.car.model_year }} - {{ cm.car.car.make}}-->
+                        <div class="col-md-6">
+                            <img class="img-responsive" ng-src="{{cm.car.image
+}}" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-6">
+                                <strong>Vehicle Id:</strong> {{cm.car.car.id}}<br />
+                                <strong>Make:</strong> {{cm.car.car.make}}<br />
+                                <strong>Model Name:</strong> {{cm.car.car.model_name}}<br />
+                                <strong>Model Trim:</strong> {{cm.car.car.model_trim}}<br />
+                                <strong>Model Year:</strong> {{cm.car.car.model_year}}<br />
+                                <strong>Body Style:</strong> {{cm.car.car.body_style}}<br />
+                                <strong>Engine Position:</strong> {{cm.car.car.engine_position}}<br />
+                                <strong>Engine CC:</strong> {{cm.car.car.engine_cc}}<br />
+                                <strong>Num Cyclinders:</strong>  {{cm.car.car.engine_num_cyl}}<br />
+                                <strong>Engine Type:</strong>  {{cm.car.car.engine_type}}<br />
+                                <strong>Valves per Cyl:</strong>  {{cm.car.car.engine_valves_per_cyl}}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Engine Power:</strong>  {{cm.car.car.engine_power_ps}}<br />
+                                <strong>Torque:</strong>  {{cm.car.car.engine_torque_nm}}<br />
+                                <strong>Engine Fuel:</strong>   {{cm.car.car.engine_fuel}}<br />
+                                <strong>Drive Type:</strong>   {{cm.car.car.drive_type}}<br />
+                                <strong>Transmission Type:</strong>  {{cm.car.car.transmission_type}}<br />
+                                <strong>Doors:</strong>  {{cm.car.car.doors}}<br />
+                                <strong>Weight (kg):</strong>  {{cm.car.car.weight_kg}}<br />
+                                <strong>Gas lkm (Hwy):</strong>  {{cm.car.car.lkm_hwy}}<br />
+                                <strong>Gas lkm (Mixed):</strong>  {{cm.car.car.lkm_mixed}}<br />
+                                <strong>Gas lkm (City):</strong>  {{cm.car.car.lkm_city}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong class="text-center">
+                            <br />
+                            Recall Information - {{cm.car.recalls.Count}} Recalls
+                            <br />
+                        </strong>
+                        <uib-accordion>
+                            <uib-accordion-group ng-repeat="recall in cm.car.recalls.Results" heading="{{recall.Component}}">
+                                <strong>Manufacturer:</strong>{{recall.Manufacturer}}<br />
+                                <strong>Campaign Number:</strong>{{recall.NHTSACampaignNumber}}<br />
+                                <strong>Action Number:</strong>{{recall.NHTSAActionNumber}}<br />
+                                <strong>Summary:</strong>{{recall.Summary}}<br />
+                                <strong>Consequence : </strong>{{recall.Summary}}<br />
+                                <strong>Remedy :</strong>{{recall.Conequence}}<br />
+                                <strong>Notes :</strong>{{recall.Remedy}}<br />
+                            </uib-accordion-group>{{recall.Notes}}<br />
+                        </uib-accordion>
+                    </div>
+                </div>
+            </div>  <!--Modal Body End-->
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="cm.ok()">Close</button>
+            </div>
+        </script>
+    </div>
+    <div class="row">
+        <div align="center" class="col-md-8"><img class="img-responsive" src="uploadimg/Mario_kart_first_logo.png" /></div>
+        <div align="center" class="col-md-4"><img style="max-height:180px" src="uploadimg/mario_kart_8_bowser_artwork.png" /></div>
+    </div>
+    <div align="right" share-square="true" share-links="Facebook, Twitter, LinkedIn, Google-Plus" share-title="Article Title" style="font-size:30px;"></div>
+</body>
+
+</html>

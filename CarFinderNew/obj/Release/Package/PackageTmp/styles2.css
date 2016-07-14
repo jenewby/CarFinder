@@ -1,0 +1,10 @@
+﻿.jumbotron {
+    background-image: url('uploadimg/MARIO_KART_nintendo_go_kart_race_racing_family_1650x1275.jpg');
+    color: white;
+    background-attachment: fixed;
+    min-height:400px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left:0px;
+    margin-right:0px;
+}
